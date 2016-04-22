@@ -72,6 +72,7 @@ module.exports = function(grunt) {
   }, ['requirejs', 'uglify', 'less', 'copy', 'sed']);
 
   mockup.registerBundle('structure', {}, { url: '++resource++wildcard.foldercontents-structure' });
+  mockup.registerBundle('wbcockpit', {}, { url: '++resource++fhnw.weiterbildung/wbcockpit' });
   mockup.registerBundle('filemanager', {}, { url: '++resource++plone.resourceeditor-filemanager' });
   mockup.registerBundle('resourceregistry');
   mockup.registerBundle('plone', {}, { path: 'build/', url: '++resource++plone' });

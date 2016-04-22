@@ -30,11 +30,12 @@ stamp-bower: stamp-npm bower.json
 	$(BOWER) install
 	touch stamp-bower
 
-bundles: stamp-bower bundle-widgets bundle-structure bundle-plone
+bundles: stamp-bower bundle-widgets bundle-structure bundle-plone bundle-wbcockpit
 	# ----------------------------------------------------------------------- #
 	# cp build/widgets* path/to/plone.app.widgets/plone/app/widgets/static
 	# cp build/structure* path/to/wildcard.foldercontents/wildcard/foldercontents/static
 	# cp build/plone* path/to/Products.CMFPlone/Products/CMFPlone/static
+	# cp build/wbcockpit* path/to/fhnw.weiterbildung/src/fhnw/weiterbildung/static
 	# ----------------------------------------------------------------------- #
 
 bundle-widgets:
@@ -43,6 +44,9 @@ bundle-widgets:
 
 bundle-structure:
 	NODE_PATH=$(NODE_PATH) $(GRUNT) bundle-structure $(DEBUG) $(VERBOSE) --gruntfile=mockup/Gruntfile.js
+
+bundle-wbcockpit:
+	NODE_PATH=$(NODE_PATH) $(GRUNT) bundle-wbcockpit $(DEBUG) $(VERBOSE) --gruntfile=mockup/Gruntfile.js
 
 bundle-plone:
 	mkdir -p $(BUILD_DIR)
@@ -128,4 +132,4 @@ publish-docs:
 i18n-dump:
 	NODE_PATH=$(NODE_PATH) $(GRUNT) i18n-dump --gruntfile=mockup/Gruntfile.js
 
-.PHONY: bundle bundle-widgets bundle-structure bundle-plone docs bootstrap bootstrap-nix jshint test test-once test-dev test-dev-ff test-ci publish-docs clean clean-deep
+.PHONY: bundle bundle-widgets bundle-structure bundle-wbcockpit bundle-plone docs bootstrap bootstrap-nix jshint test test-once test-dev test-dev-ff test-ci publish-docs clean clean-deep

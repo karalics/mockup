@@ -112,6 +112,11 @@ require([
             description: 'Managing a folder of items',
             url: 'patterns/structure/pattern.js'
           },
+          { id: 'wbcockpit',
+            title: 'WBcockpit',
+            description: 'Managing a folder of items',
+            url: 'patterns/wbcockpit/pattern.js'
+          },
           { id: 'textareamimetypeselector',
             title: 'Textarea MimeType Selector',
             description: 'Selects the MimeType for a textarea and changes the widget according to the MimeType',
